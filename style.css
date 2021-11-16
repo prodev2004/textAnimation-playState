@@ -1,0 +1,61 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background-color: #0e0e0e;
+}
+
+span {
+    display: inline-block;
+    font-size: 2rem;
+    
+    /* as default we want the spans to be hidden and translate them -50% */
+    /* for them to be translated we need to add a displat of inline-block to the spans */
+    opacity: 0;
+    transform: translateY(-50%);
+
+    /* now to create that cool animation we'll use the animation-play-state - this property will help us decide if the animation is running or paused */
+    /* as default it'll be paused */
+    /* we want to start the animation when we hover over the all the spans parent (span_container) */
+    animation: animate 500ms linear forwards;
+    animation-play-state: paused;
+}
+
+.space {
+    margin: 0 .5rem;
+}
+.span_container {
+    background-color: #ff0000;
+    padding: 2rem 5rem;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: .2rem;
+}
+
+.span_container:hover span {
+    animation-play-state: running;
+}
+
+@keyframes animate {
+    80% {
+        opacity: 1;
+        transform: translateY(10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* now to create that cool effect you saw in the beginning we need to add an animation-delay to each span. I'll add +0.1 to each one */
